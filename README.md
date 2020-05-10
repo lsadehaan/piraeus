@@ -27,7 +27,7 @@ The hosts should use Docker as their container runtime and be running one of the
 The nodes on which piraeus should provide or consume storage should be labelled as follows:
 
 ```
-kubectl label nodes $NODE_NAME piraeus/enabled=true
+kubectl label nodes $NODE_NAME piraeus/node=true
 ```
 
 These nodes must also have the appropriate kernel development package installed unless DRBD is already present.
@@ -43,7 +43,7 @@ kubectl apply -f https://raw.githubusercontent.com/piraeusdatastore/piraeus/mast
 
 This may take several minutes. You may observe the pods by command:
 ```
-kubectl -n kube-system get pod -l app.kubernetes.io/name=piraeus
+kubectl -n piraeus-system get pod -l app.kubernetes.io/name=piraeus
 ```
 Once the pods have started, the status of Piraeus can be checked by following commands.
 
